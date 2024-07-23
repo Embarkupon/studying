@@ -89,7 +89,7 @@ string = String(variable); // String() converts number to string
 console.log(typeof string); // returns string
 
 /** String methods are used to perform operations on string values, they take a string as input
- * and usually return some other value.
+ * and usually return a string.
  */
 
 string = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"; // english alphabet
@@ -148,6 +148,15 @@ string = string.concat(" ", string);
 string = string.replaceAll("MAN", "GIRL"); // replaces all matching substrings
 console.log(string);
 
+// you can convert a string to an array using split()
+variable = string.split(""); // this makes every character an element in the array
+console.log(variable);
+
+variable = string.split(","); // this splits substrings by the specified character into an array
+console.log(variable);
+
+
+
 
 // console.log("this causes an error: ${string}");
 
@@ -188,3 +197,120 @@ console.log(unassigned); // returns undefined
 /** typeof operator returns the type of value a variable stores */
 variable = "hello, world";
 console.log(typeof variable); // returns string
+
+/**
+ * Comparisons and conditionals
+ * Comparisons in JavaScript are written using math comparisons
+ * - Greater/Less than : a>b, a<b
+ * - Greater/less than equals : a>=, a<=b
+ * - Equals : a == b
+ * - Not equals : a != b
+ * 
+ * ALL COMPARISONS RETURN A BOOLEAN VALUE true/false
+ */
+
+let result = 8 < 10;
+console.log(result); // prints true
+
+/** Comparing string is done in lexicographical order, or, letter-by-letter */
+result = "Z" > "A";
+console.log(result); // returns true
+
+/** for word strings the first letter is calculated, if the letters are the same 
+ *  then the comparison checks the next letter until a conclusion is reached */
+
+//comparing different types
+result = '1' > 0; // converts values to numbers
+console.log(result); // returns true
+
+/** strict equality, when checking if a value is true or false 'var == false' would 
+ *  be innacurate. a strict equality check uses '===' e.g. 'var === false'
+ *
+ */ 
+console.log(result === true);
+console.log(result !== false);
+
+/**
+ * null and undefined, you can do strict equality checks on these too.
+ */
+
+/** CONDITIONAL STATEMENTS, these are used as decision making in a program. */
+if (result) { // if a statement is true, then perform this action
+    console.log("result is true!");
+} else { // if none of the above conditions are true, then perform default behavior
+    console.log("result is false!");
+}
+
+if (1 > 2) {
+    console.log("HUUUUUUUH????");
+} else if (2 > 1) { //else if's are additional statements to check for in a conditional tree
+    console.log("this is a true!");
+} else {
+    console.log("default");
+}
+
+/** LOGICAL OPERATIORS, there are four of them:
+ *      || : OR
+ *      && : AND
+ *      !  : NOT
+ *      ?? : Nullish Coalescing
+ * Logical operators are normally used in conditionals to check for multiple conditions
+    as a note, && has precedence over ||
+*/
+
+//examples
+if (0 < 1 || 0 > 1) {
+    console.log("one of these conditions is true");
+}
+if (0 < 1 && 1 > 0) {
+    console.log("all of the conditions are true");
+}
+if (result == !null) {
+    console.log(`result is not null, result is ${result}`);
+}
+
+//alert(null && 3);
+
+let age = Math.round(Math.random() * (100 - 1) + 1);
+if (age >= 14 && age <= 90) {
+    console.log(`your age is ${age}`);
+} else {
+    console.log(`${age} is not within range`)
+}
+
+/** SWITCH STATEMENTS, can replace 'if' conditonal trees */
+
+let randNum = Math.round(Math.random() * (4 - 1) + 1);
+
+switch(randNum) { //compares switch paramater to case values
+    case 1 :
+        console.log('CASE 1');
+        break;
+    case 2:
+        console.log('CASE 2');
+        break;
+    case 3:
+        console.log('CASE 3');
+        break;
+    case 4:
+        console.log('CASE 4');
+        break;
+    default:
+        console.log("why are we here...");
+        break;
+}
+
+
+switch(randNum) { //grouped case example
+    case 1:
+    case 2:
+        console.log(`CASE ${randNum}`);
+        break;
+    case 3:
+    case 4:
+        console.log(`CASE ${randNum}`);
+        break;
+    default:
+        console.log("why are we here...");
+        break;
+}
