@@ -300,7 +300,6 @@ switch(randNum) { //compares switch paramater to case values
         break;
 }
 
-
 switch(randNum) { //grouped case example
     case 1:
     case 2:
@@ -314,3 +313,8 @@ switch(randNum) { //grouped case example
         console.log("why are we here...");
         break;
 }
+
+
+//ternary operator
+result ? true : false;
+//condition ? code to execute if true : code to execute if false;
