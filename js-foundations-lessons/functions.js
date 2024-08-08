@@ -80,5 +80,5 @@ console.log(aFunction());
 /** what is an arrow function */
 aFunction = (x, y) => {
     console.log(x + y);
-}
+} // this is an arrow function
 aFunction(2,4);
