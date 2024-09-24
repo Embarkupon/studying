@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping list example</title>
+    <style>
+      li {
+        margin-bottom: 10px;
+      }
+
+      li button {
+        font-size: 12px;
+        margin-left: 20px;
+        color: #666;
+      }
+    </style>
+  </head>
+  <body>
+
+    <h1>My shopping list</h1>
+
+    <div>
+      <label for="item">Enter a new item:</label>
+      <input type="text" name="item" id="item">
+      <button>Add item</button>
+    </div>
+
+    <ul>
+
+    </ul>
+
+    <script>
+      // variables to hold references to elements
+      const shoppingList = document.querySelector("ul");
+      const input = document.querySelector("#item");
+      const btn = document.querySelector("button");
+
+      // event listener for button
+      btn.addEventListener("click", () => {
+        var inputValue = input.value;
+        input.value = '';
+        console.log(inputValue);
+
+        //create new elements for list items
+        const listItem = document.createElement("li");
+        const item = document.createElement("span");
+        const button = document.createElement("button");
+
+        listItem.appendChild(item);
+        listItem.appendChild(button);
+
+        item.textContent = inputValue;
+        button.textContent = "Delete";
+        
+        //append the list item to the shopping list
+        shoppingList.appendChild(listItem);
+        button.addEventListener("click", () => {
+          //remove list item upon click delete
+          shoppingList.removeChild(listItem);
+        });
+        
+        //sets focus on the specified element if it can be focused
+        //the focused elements recieves keyboard and similar event by default
+        input.focus();
+
+      })
+
+    </script>
+  </body>
+</html>
+<!-- https://github.com/mdn/learning-area/blob/main/javascript/apis/document-manipulation/shopping-list.html -->

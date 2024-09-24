@@ -61,3 +61,21 @@ reminder
 html tags open and typically close content in an HTML file.
 html elements is the result of that.
 html attributes describe more information inside of HTML tags.
+
+EVENTS
+Events can manipulate the DOM dynamically.
+- you can specify the function attributes directyl on your HTML elements
+- you cans set properties in the form of on<eventType>, such as onclick or
+mousedown, on the DOM nodes in your JavaScript.
+- you can attach event listeners to the DOM nodes in your JavaScript (preferred method)
+
+using named fucntions can considerably clean up code especially if you'll be using it
+in multiple locations.
+
+a callback function is a function passed as an argument to another function.
+
+useful events include
+- click
+- dblclick
+- keydown
+- keyup
