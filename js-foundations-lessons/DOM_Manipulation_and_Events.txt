@@ -1,0 +1,63 @@
+The DOM (Document Object Model) is a tree of nodes in a webpage (HTML DOCUMENT).
+Nodes are targeted using selectors. For example these CSS style selectors.
+    - element.class
+    - .class
+    - #id > .class
+    - element#id > element.class
+Or relational selectors
+    - firstElementChild
+    - lastElementChild
+DOM METHODS
+When HTML code is parsed by a web browser it's converted to the DOM.
+JavaScript object are nodes with many properties and methods attached.
+
+Query selectors
+element.querySelector(selector) - returns a reference to the first match of selector.
+element.querySelectorAll(selectors) - returns a NodeList containing references to all
+of the matches of the selectors.
+
+
+IMPORTANT- NodeLists are not arrays, but they can be repopulated into an arrays
+
+Element Creation
+- document.createElement(tagName, [optional]) - creates a new element of tag type and tagName.
+This function puts your new element inro the the DOM memeory.You can place it into the DOM
+with:
+parentNode.appendChild(childNode) - appends childNode as the last child of parentNode.
+parentNode.insertBefore(newNode, referenceNode) - removes child from parentNode on the DOM
+and returns a reference to it's child.
+you can also remove elements with :
+- parentNode.removeChild(child) - removes child from parent on the DOM and returns
+a reference to the child.
+
+You can also style the content after creating it in the JavaScript file.
+- content.style.color = 'color';
+- content.style.cssText = "color: blue; background: white;";
+- content.setAttribute("style", "color: blue; background: white;";)
+
+to reference kebab-case CSS properties like background-color, use either camelCase with
+dot notation or bracket notation.
+- content.style.backgroundColor = "color"
+- content.style["background-color"] = "color"
+
+you can reference html attributes
+- content.setAttribute("id", "id-name");
+- content.getAttribute("id"); returns "id-name"
+- content.removeAttribute("id"); removes attributes
+
+working with classes
+- content.classList.add("new"); adds class "new" to your new element.
+- content.classList.remove("new"); removes "new" class from your element.
+- content.classList.toggle("active"); adds or removes class active if it is present or not
+
+- content.textContent = "textContent"; creates text node and inserts into element
+- content.innerHTML = "<span>Hello World</span>"; renders htmls inside element
+dont use innerHTML often, it causes a security risk to cross-site sripting attacks.
+
+JavaScript cannot alter your HTML it only manipulates the DOM, when doing DOM manipulation
+make sure that all JavaScript is run after the HTML.
+
+reminder
+html tags open and typically close content in an HTML file.
+html elements is the result of that.
+html attributes describe more information inside of HTML tags.
