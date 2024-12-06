@@ -1,0 +1,200 @@
+/*Units in css refer to px, em, rem, etc. theyre the units used
+to define the dimensions of your content. There are Absolute,
+RElative, and Viewport units. 
+
+px is an Absolute unit meaning that
+they are always the same in any context. The size of a pixel is
+always the same.
+
+em and rem are relative units meaning that their size changes based
+on context. em and rem refer to font size, but can be
+used to define other sizes. em multiplies font px size of the parent. rem does too
+but it refers to to the root element. 
+
+viewport units can refer to vh and vw which refer to the percentage
+height and width of the viewport, respectively.
+
+USE rem FOR FONT SIZE, USE px FOR EVERYTHING ELSE, using rem for margin
+and padding, etc. is a design choice.*/
+
+/*
+    child combinator '>' is used to select children one level of
+    indentation down from a parent selector. the adjacent sibling 
+    combinator '+' is used to select siblings adjacent to another 
+    selector. The general sibling combinator is used to select 
+    all siblings of a another selector.
+
+    pseudo-classes offer a different way to target html elements.
+    like applying effects to them.
+    :focus applies to a user selected element either by cursor or keyboard
+    :hover affects anything under user mouse pointer. used as a trigger
+    for events.
+    :active applies to elements that are currently being clicked. 
+    useful to give tactile feedback to the user when clicking 
+    buttons etc.
+    :link targets unvisited links
+    :visited targets visited links
+
+    structural pseudo-classes selects elements based on their
+    position in the DOM.
+    :root top level of document, no parents, targets everything.
+    :first-child :last-child match first and last siblings
+    written "sibling:first-child" 
+    :empty represents an element that has no children at all
+    :only-child targets child whose parent has no other children
+    :nth-child(n) where n is the nth child to be targeted.
+
+    pseudo-elements affect parts of html that are not represented
+    as elements. same specificity as elements.
+    ::marker targets a <li> bullets or marker box
+    ::first-letter ::first-line styles first letter or line of 
+    a body of text. like a BIG first letter or a bold first line..
+    ::selection targets the highlight when an element is selected
+    on a webpage
+    ::before ::after I get it, I just read a poor explanation.
+    doesn't add extra elements, it styles a "pseudo-element" 
+    before or after the targeted selector. I.e. it adds styling
+    before and after the target. 
+
+    attribute selectors
+    targets attributes, same specificity as classes.
+    [attribute] - selects anything where the given attribute exists.
+    value doesnt matter.
+    selector[attribute] - can combine with other types of selectors
+    for more specificity
+    [attribute="value"] - targets specific attribute with specific value
+    variations of this include ^=, $=, *= which match the string value
+    from the beginning, end, or anywhere respectively. 
+    basically [class^="str"] target any class attribute that
+    has a value which begins with "str". $=,*= do the same but for
+    end and anywhere.
+
+  [src] {
+    This will target any element that has a src attribute. 
+  }
+
+  img[src] {
+     This will only target img elements that have a src attribute. 
+  }
+
+  img[src="puppy.jpg"] {
+     This will target img elements with a src attribute that is exactly "puppy.jpg" 
+  }
+*/
+/*Functions in CSS
+    min, max, calc, clamp
+    min sets the maximum threshold for a given element's value.
+    max sets the minumum threshold for a given element's value.
+    calc, it's used to do arithmetic to calculate a value while taking
+    into account the various different units used as arguments.
+    clamp sets a range with and ideal value. basically sets the max, 
+    min and ideal.
+    
+    CUSTOM PROPERTIES or Variables
+    CSS variables are written as '--css-variable' start off with two 
+    hyphens and words are hyphen seperated. These can store rules for
+    repeated use. to use a variable pass it as an argument to the 
+    var() function, this function accepts the variable to use and
+    a fallback as two parameters.
+    
+    scope for this variables is parent to child, so child elements
+    can use variable declared in parent attributes. declaring custom
+    properties in 'root:' would give global access to them.*/
+/*
+    wild card selector applies to any element on a webpage
+    this rule resolves PERCENTAGES based on the border-box. I.e.
+    it will fit everything into the parent dimensions
+
+    CSS Specificity:
+    style attribute > ID > class > element
+
+    The DOM (Document Object Model) connects web pages to scripts or 
+    programming languages by representing their structure in memory.
+    
+*/
+*, *::before, *::after {
+    box-sizing: border-box;
+  }
+/* browsers make assumptions about each elements margin.
+this rule overwrites that assumption and set the margins to zero.
+since the '*' selector is low priority it can be easily overwritten */
+* {
+    margin: 0
+}
+/* line height controls the vertical spacing between each line of text
+the default is 1.2 it should be overridden with 1.5 for better
+accessibility for dyslexic people*/
+body {
+    line-height: 1.5;
+}
+/** it smooths pixels on font,
+macOS uses subpixel-antialiasing by default.. */
+body {
+    -webkit-font-smoothing: antialiased;
+}
+/* imgs are considered inline elements, thus are prone
+to overflow. this prevents that. sometimes you want images to overflow
+though. */
+img, picture, video, canvas, svg {
+    display: block;
+    max-width: 100%;
+}
+/*buttons and inputs don't inherit typographical styles from 
+their parents. this makes them inherit it. It improves user experience
+by avoiding hard to read text and unintentional zooming.*/
+input, button, textarea, select {
+    font: inherit;
+}
+
+/*avoid text overflow*/
+p, h1, h2, h3, h4, h5, h6 {
+    overflow-wrap: break-word;
+}
+/*idk*/
+#root, #__next {
+    isolation: isolate;
+}
+/*useful for text overflow*/
+.overflowing {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  /*POSTIONING DEMO*/
+  /*Positions are static by default, which means elements follow one another
+  in a document flow.
+  
+    Relative positioning is similar to static positioning, but it allows
+    all elements to be positioned relative to the document by removing
+    it from the document flow.
+    
+    absolute positioning completely removes element from the document
+    flow and positions itself as if other elements dont exist
+    in the document at all. absolute positioned elements don't fit
+    into a static parent, so change parent to relative, absolute, sticky, fixed
+    
+    fixed position elements are always fixed position based on the entire
+    html element ignoring the parent. They stay in the same place.
+
+    sticky position is a combination of relative and fixed position.
+    sticky position elements are relative by default, until the page
+    moves out of it's relative position, scrolling, then it becomes
+    fixed.
+    */
+  .parent {
+
+  }
+
+  .child-one {
+
+  }
+
+  .child-two {
+
+  }
+
+
+  .child-three {
+    
+  }
