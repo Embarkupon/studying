@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forms</title>
+</head>
+<body>
+    <div>forms are created useing the 'form' element. The form accepts
+        two essential attributes; the 'action' attribute takes a URL
+        value that tells the form where to send data to.
+
+        The 'method' attribute tells the browser which http request
+        method is should use to submit the form. (GET, POST request methods)
+
+        GET retrieves data from the server, while POST changes something
+        in the server.
+
+        use form control elements to collect user data.
+        e.g. text boxes, dropdowns, checkboxes, buttons.
+        <!-- example markup for a http request using form-->
+        <form action="example.com/path" method="post">
+            <div>input element, user typed input: 
+                <input type="text">
+            </div>
+            
+            <div>labels inform users about what an element is for: 
+                <label for="first_name"><span style="font-weight: bold;">First Name:</span></label>
+                <input type="text" id="first_name" name="first_name">
+                <!--the for attribute value must match the 
+                    input's id attribute value.
+                    the name attribute -->
+                <!--the name attribute gets -->
+            </div>
+
+            <div>
+                
+            </div>
+        </form>
+        The 'type' has an email value which validates if input is a 
+        valid email format.
+
+        the "password" value masks input text with a symbol
+
+        'number' value only accepts number values.
+
+        'date' value renders a date picker calendar
+
+        'selection' elements renders a dropdown list, where the listed
+        options would be displayed. options are defined using the 'option'
+        tag.
+        <select name="Car">
+            <option value="mercedes">Mercedes</option>
+            <option value="tesla">Tesla</option>
+            <!--applying a selected attribute sets that option as selected-->
+            <option value="volvo" selected>Volvo</option>
+            <option value="bmw">BMW</option>
+            <option value="mini">Mini</option>
+            <option value="ford">Ford</option>
+        </select>
+
+        the 'optgroup' element  splits options
+        <select name="fashion">
+            <optgroup label="Clothing">
+              <option value="t_shirt">T-Shirts</option>
+              <option value="sweater">Sweaters</option>
+              <option value="coats">Coats</option>
+            </optgroup>
+            <optgroup label="Foot Wear">
+              <option value="sneakers">Sneakers</option>
+              <option value="boots">Boots</option>
+              <option value="sandals">Sandals</option>
+            </optgroup>
+          </select>
+
+          Radio buttons are used to give users options to select from
+          <div>
+            <input type="radio" id="child" name="ticket_type" value="child">
+            <label for="child">Child</label>
+          </div>
+          <div>
+            <!--applying the checked attribute leaves that radio button selected-->
+            <input type="radio" id="adult" name="ticket_type" value="adult" checked>
+            <label for="adult">Adult</label>
+        </div>
+        <div>
+            <input type="radio" id="senior" name="ticket_type" value="senior">
+            <label for="senior">Senior</label>
+        </div>
+    </div>
+    <h1>checkboxes allow for multiple boxes to be ticked</h1>
+
+    <div>
+        <input type="checkbox" id="sausage" name="topping" value="sausage">
+        <label for="sausage">Sausage</label>
+    </div>
+
+    <div>
+        <input type="checkbox" id="onions" name="topping" value="onions">
+        <label for="onions">Onions</label>
+    </div>
+
+    <div>
+        <input type="checkbox" id="pepperoni" name="topping" value="pepperoni">
+        <label for="pepperoni">Pepperoni</label>
+    </div>
+
+    <div>
+        <input type="checkbox" id="mushrooms" name="topping" value="mushrooms">
+        <label for="mushrooms">Mushrooms</label>
+    </div>
+    <div>buttons can be of various types. they can submit, which
+        submits their form.
+    </div>
+    <button type="submit">Submit</button>
+    <div>Reset buttons initialize the form and clear user input</div>
+    <button type="reset">Reset</button>
+    <div>the generic button can do anything, it's used for JS manipulation</div>
+    <button type="button">Toggle</button>
+    <div>Forms can become too large and unmanageable, but there are
+        HTML elements that can help organize them.
+    </div>
+    <fieldset>
+        <!--the legend is a caption for fieldset-->
+        <legend>Contact</legend>
+        <label for="first_name">First Name</label>
+        <input type="text" id="first_name" name="first_name">
+        <label for="last_name">Last Name</label>
+        <input type="text" id="last_name" name="last_name">
+    </fieldset>
+    <div>when it comes to styling forms, CSS can be simply applied to 
+        text-based form controls like text, email, and passwords.
+
+        Checkboxes and radio buttons, presumably dropdowns as well,
+        are harder to style.
+
+        Some things are impossible to style with CSS, like calendars
+        and date pickers, they woul have to be custom built in JavaScript
+        in order to style them.
+    </div>
+</body>
+</html>
